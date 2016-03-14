@@ -21,7 +21,21 @@ gem 'sdltm_importer'
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# Get the high level stats of a .sdltm file
+file_path = File.expand_path('../sample.sdltm')
+sdltm = SdltmImporter::Sdltm.new(file_path: file_path)
+sdltm.stats
+# => {:tu_count=>1, :seg_count=>2, :language_pairs=>[["en", "fr"]]}
+
+# Extract the segments of a .sdltm file
+# Result: [translation_units, segments]
+# translation_units = [tu_id, creation_date]
+# segments = [tu_id, segment_role, word_count, language, segment_text, creation_date]
+
+sdltm.import
+# => [[["6234-1457917153-1"]], [["6234-1457917153-1", "source", 2, "en", "Hello world"], ["6234-1457917153-1", "target", 3, "fr", "Bonjour le monde"]]]
+```
 
 ## Contributing
 
