@@ -62,7 +62,7 @@ module SdltmImporter
         [4, 6].each do |i|
           language        = segment[i].scan(TUV_LANG_REGEX).flatten[0]
           tags            = create_tags(segment[i].scan(TUV_TAGS_REGEX), segment, i)
-          segment_text    = PrettyStrings::Cleaner.new(parse_segment_text(segment, tags, i)).pretty
+          segment_text    = PrettyStrings::Cleaner.new(parse_segment_text(segment, tags, i)).pretty.gsub("\\","&#92;").gsub("'",%q(\\\'))
           word_count      = segment_text.gsub("\s+", ' ').split(' ').length
           if i.eql?(4)
             @doc[:source_language] = language

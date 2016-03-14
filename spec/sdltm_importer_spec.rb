@@ -35,7 +35,7 @@ describe SdltmImporter do
     it 'imports a .sdltm file 3' do
       file_path = File.expand_path('../sdltm_importer/spec/sample_test_files/sample.sdltm')
       sdltm = SdltmImporter::Sdltm.new(file_path: file_path)
-      expect(sdltm.import[1][-1][4]).to eq("Your website's URL")
+      expect(sdltm.import[1][-1][4]).to eq("Your website\\'s URL")
     end
 
     it 'imports a .sdltm file 4' do
