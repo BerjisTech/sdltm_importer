@@ -61,5 +61,11 @@ describe SdltmImporter do
       sdltm = SdltmImporter::Sdltm.new(file_path: file_path)
       expect(sdltm.import[0][1][0]).to eq(sdltm.import[1][3][0])
     end
+
+    it 'imports a .sdltm file 7' do
+      file_path = File.expand_path('../sdltm_importer/spec/sample_test_files/sample.sdltm')
+      sdltm = SdltmImporter::Sdltm.new(file_path: file_path)
+      expect(sdltm.import[0][1][0]).to eq(sdltm.import[1][3][0])
+    end
   end
 end
